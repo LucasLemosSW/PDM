@@ -23,7 +23,7 @@ const Preload = ({navigation}) => {
   const entrar = async () => {
     const sessionUser = await retrieveUserSession();
 
-    console.log("token: ", sessionUser);
+    console.log('token: ', sessionUser);
     if (sessionUser) {
       console.log('chegouuuu');
       if (sessionUser.emailLocal !== '' && sessionUser.pass !== '') {

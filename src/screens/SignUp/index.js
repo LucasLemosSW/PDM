@@ -24,6 +24,7 @@ const SignUp = ({navigation}) => {
       .createUserWithEmailAndPassword(email, password)
       .then(async () => {
         await auth().currentUser.sendEmailVerification();
+        navigation.navigate('SignIn');
         console.log('User account created & signed in!', email);
       })
       .catch(error => {
