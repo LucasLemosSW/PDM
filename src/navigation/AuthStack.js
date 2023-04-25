@@ -1,28 +1,24 @@
-import 'react-native-gesture-handler';
 import * as React from 'react';
-import {createStackNavigator} from '@react-navigation/stack';
-import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import SignIn from '../screens/SignIn';
 import SignUp from '../screens/SignUp';
 import Remember from '../screens/Remember';
 import {COLORS} from '../assets/colors';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export default function AuthStack() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="SignIn">
-        <Stack.Screen name="SignIn" component={SignIn} options={signInStyle} />
-        <Stack.Screen name="SignUp" component={SignUp} options={signUpStyle} />
-        <Stack.Screen
-          name="ForgotPassWord"
-          component={Remember}
-          options={forgotPassWordStyle}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator initialRouteName="SignIn">
+      <Stack.Screen name="SignIn" component={SignIn} options={signInStyle} />
+      <Stack.Screen name="SignUp" component={SignUp} options={signUpStyle} />
+      <Stack.Screen
+        name="ForgotPassWord"
+        component={Remember}
+        options={forgotPassWordStyle}
+      />
+    </Stack.Navigator>
   );
 }
 
