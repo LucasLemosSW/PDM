@@ -23,9 +23,7 @@ const Preload = ({navigation}) => {
   const entrar = async () => {
     const sessionUser = await retrieveUserSession();
 
-    console.log('token: ', sessionUser);
     if (sessionUser) {
-      console.log('chegouuuu');
       if (sessionUser.emailLocal !== '' && sessionUser.pass !== '') {
         try {
           await auth().signInWithEmailAndPassword(
@@ -35,7 +33,7 @@ const Preload = ({navigation}) => {
           navigation.dispatch(
             CommonActions.reset({
               index: 0,
-              routes: [{name: 'AppStack'}],
+              routes: [{name: 'Alunos'}],
             }),
           );
         } catch (error) {
@@ -64,8 +62,7 @@ const Preload = ({navigation}) => {
       //     routes: [{name: 'AuthStack'}],
       //   }),
       // );
-      navigation.navigate('SignIn');
-      console.log('caiu no else');
+      // navigation.navigate('SignIn');
     }
   };
 
